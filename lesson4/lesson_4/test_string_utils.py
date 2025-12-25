@@ -78,5 +78,5 @@ def test_delete_symbol_whitespace():
     assert utils.delete_symbol("раз два три", " ") == "раздватри"
 
 def test_delete_symbol_special_chars():
-    assert utils.delete_symbol("email@site.com", "@") == "emailsite.com"
+    assert utils.delete_symbol("email@mail.ru", "@") == "emaimail.ru"
     assert utils.delete_symbol("путь/к/файлу", "/") == "путькфайлу"
