@@ -42,3 +42,41 @@ def test_contains_empty_string():
     
 def test_contains_empty_symbol():
     assert utils.contains("hello", "") is True 
+
+def test_delete_symbol_single_char():
+    assert utils.delete_symbol("программа", "г") == "прорама"
+
+def test_delete_symbol_first_char():
+    assert utils.delete_symbol("тест", "т") == "ес"
+
+def test_delete_symbol_last_char():
+    assert utils.delete_symbol("код", "д") == "ко"
+
+def test_delete_symbol_multiple_occurrences():
+    assert utils.delete_symbol("банан", "а") == "бнн"
+
+def test_delete_symbol_substring_middle():
+    assert utils.delete_symbol("автомобиль", "мобиль") == "авто"
+
+def test_delete_symbol_substring_duplicates():
+    assert utils.delete_symbol("хахаха", "ха") == ""
+
+def test_delete_symbol_not_found():
+    assert utils.delete_symbol("пример", "z") == "пример"
+    assert utils.delete_symbol("текст", "абв") == "текст"
+
+def test_delete_symbol_empty_string():
+    assert utils.delete_symbol("", "а") == ""
+
+def test_delete_symbol_empty_symbol():
+    assert utils.delete_symbol("строка", "") == "строка"
+
+def test_delete_symbol_identical_strings():
+    assert utils.delete_symbol("abc", "abc") == ""
+
+def test_delete_symbol_whitespace():
+    assert utils.delete_symbol("раз два три", " ") == "раздватри"
+
+def test_delete_symbol_special_chars():
+    assert utils.delete_symbol("email@mail.ru", "@") == "emaimail.ru"
+    assert utils.delete_symbol("путь/к/файлу", "/") == "путькфайлу"

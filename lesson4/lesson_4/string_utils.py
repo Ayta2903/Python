@@ -42,7 +42,6 @@ class StringUtils:
     def delete_symbol(self, string: str, symbol: str) -> str:
         """
         Удаляет все подстроки из переданной строки
-        Параметры:
             `string` - строка для обработки
             `symbol` - искомый символ для удаления
         Пример 1: `delete_symbol("SkyPro", "k") -> "SyPro"`
