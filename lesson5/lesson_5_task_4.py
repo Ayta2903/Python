@@ -10,7 +10,7 @@ def main():
     firefox_options.add_argument("--disable-dev-shm-usage")
 
     driver = webdriver.Firefox(options=firefox_options)
-    wait = WebDriverWait(driver, 10)  
+    wait = WebDriverWait(driver, 20)  
 
     try:
         driver.get("http://the-internet.herokuapp.com/login")
@@ -34,19 +34,21 @@ def main():
         login_button.click()
         print("Кнопка Login нажата")
 
+        driver.save_screenshot("after_login.png")
+
         success_message = wait.until(
-            EC.visibility_of_element_located((By.CSS_SELECTOR, ".flash.flash-success"))
+            EC.visibility_of_element_located((By.ID, "flash"))
         )
         message_text = success_message.text.strip()
-        
-        clean_message = message_text.replace("×", "").strip()
-        print(f"Текст с зелёной плашки: {clean_message}")
+        print(f"Текст с зелёной плашки: {message_text}")
 
     except Exception as e:
         print(f"Произошла ошибка: {e}")
+        driver.save_screenshot("error_screenshot.png")
+        raise
     finally:
         driver.quit()
         print("Браузер закрыт")
 
 if __name__ == "__main__":
-    main()
+     main()
