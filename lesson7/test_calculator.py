@@ -1,5 +1,5 @@
 from selenium import webdriver
-from calculator_page import CalculatorPage
+from lesson7.pages.calculator_page import CalculatorPage
 
 
 def test_calculator():
@@ -18,7 +18,7 @@ def test_calculator():
         result = calculator_page.wait_for_result(50, "15")
         
         assert result == "15", f"Ожидалось 15, получено {result}"
-        print(f"✓ Тест пройден! Результат: {result}")
+        print(f"Тест пройден! Результат: {result}")
         
     finally:
         driver.quit()
