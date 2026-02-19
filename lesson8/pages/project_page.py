@@ -1,4 +1,3 @@
-# pages/project_page.py
 import requests
 from lesson8.config import BASE_URL, HEADERS
 
